@@ -1,0 +1,163 @@
+/* Variables */
+:root {
+    --form-border-radius: 5px;
+    --font-size: 20px;
+    --form-border-color: #ccc;
+    --highlight-color: #cb8a58;
+    --transition-duration: 0.3s;
+    --font-color-primary: initial;
+    --default-spacing: 15px;
+
+}
+
+* {
+    font-size: var(--font-size);
+    font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
+    font-weight: 300;
+}
+
+.h2 {
+    font-family: "Poiret One";
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 35px;
+}
+
+.ccf-paragraphe {
+    margin-bottom: 30px;
+    margin-top: var(--default-spacing);
+}
+
+.ccf-paragraphe-text {
+    color: rgb(0, 55, 50);
+}
+
+#ccf-nom,
+#ccf-prenom,
+#ccf-email,
+#ccf-tel, 
+#ccf-message,
+#ccf-btn {
+    border-radius: var(--form-border-radius);
+    border: 1px solid var(--form-border-color);
+    transition: border-color var(--transition-duration);
+    margin-bottom: var(--default-spacing);
+    width: 100%;
+    padding: 15px;
+}
+
+#ccf-btn {
+    background-color: var(--highlight-color);
+    color: white;
+    transition-duration: var(--transition-duration);
+    font-weight: 500;
+    transition-property: transform, background-color, color;
+}
+
+#ccf-btn:hover {
+    transform: scale(1.02);
+    background-color: transparent;
+    color: var(--highlight-color);
+}
+
+.ccf-field {
+    margin-bottom: var(--default-spacing);
+}
+
+.ccf-user_categories,
+.ccf-need_categories {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ccf-field input[type=checkbox],
+.ccf-field input[type=radio] {
+    display: none;
+}
+
+.ccf-field input[type=checkbox] + label,
+.ccf-field input[type=radio] + label{
+    width: calc(50% - 20px);
+    margin: var(--default-spacing) 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ccf-field input[type=checkbox] + label img,
+.ccf-field input[type=radio] + label img{
+    width: 84px;
+}
+
+.ccf-field input[type=checkbox] + label .img-wrapper,
+.ccf-field input[type=radio] + label .img-wrapper{
+    position: relative;
+    width: 84px;
+    height: 84px;
+    margin-bottom: var(--default-spacing);
+    transition-duration: var(--transition-duration);
+    transition-property: transform;
+}
+
+.ccf-field input[type=checkbox] + label .img-wrapper:hover,
+.ccf-field input[type=radio] + label .img-wrapper:hover{
+    transform: scale(1.2);
+}
+
+
+.ccf-field input[type=checkbox] + label .img-wrapper img,
+.ccf-field input[type=radio] + label .img-wrapper img {
+    width: 60%;
+    transform: translate(-50%, -50%);
+    margin-left: 50%;
+    margin-top: 50%;
+}
+
+.ccf-field input[type=checkbox] + label span,
+.ccf-field input[type=radio] + label span {
+    font-size: 16px;
+    text-align: center;
+}
+
+.ccf-field input[type=checkbox] + label .img-wrapper::before,
+.ccf-field input[type=radio] + label .img-wrapper::before {
+    position: absolute;
+    display: block;
+    width: 84px;
+    height: 84px;
+    top: 0;
+    left: 0;
+    border: 1px solid var(--highlight-color);
+    border-radius: 100%;
+    z-index: -1;
+    box-sizing: border-box;
+    content: "";
+}
+
+/* Sélectionner le label quand la checkbox ou radio button est cliqué */
+.ccf-field input[type=checkbox]:checked + label .img-wrapper::before,
+.ccf-field input[type=radio]:checked + label .img-wrapper::before {
+    border-width: 4px;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .ccf-field input[type=checkbox] + label,
+    .ccf-field input[type=radio] + label{
+        width: calc(25% - 20px);
+    }
+
+    .name-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #ccf-nom,
+    #ccf-prenom {
+        width: calc(50% - var(--default-spacing) / 2);
+    }
+
+    #ccf-btn {
+        width: 25%;
+    }
+}
